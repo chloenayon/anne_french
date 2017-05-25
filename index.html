@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <style>
+
+
+.navbar {
+  overflow: hidden;
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  margin: 0 -40px;
+  height: 60px;
+  box-shadow: 0px 1px 1px grey;
+}
+
+.header {
+  float: right;
+  position: relative;
+  left: -50%;
+  text-align: left;
+}
+
+.header > .child {
+  position: relative;
+  left: 50%;
+}
+
+.outer {
+  width: vw;
+  background-color: #fff;
+  position: relative;
+  height: 130px;
+  margin: 0 -40px;
+  box-shadow: 0px 1px 1px grey;
+}
+
+.outer .logo {
+  font-size: 46px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+}
+
+ul li {
+  float: left;
+  list-style-type: none;
+  margin: 0px 6px; 
+}
+
+ul a {
+  display: block;
+  text-decoration: none;
+  color: dimgray;
+  background-color: #ffffff;
+  font-family: "Open Sans Condensed";
+  font-size: 20px;
+}
+
+.main {
+  margin-top: 50px;
+  padding: 16px;
+  height: 1500px; 
+}
+
+
+    </style>
+  </head>
+  <body>
+
+    <div class="navbar">
+      <div class="header">
+	<br>
+	<ul class="child">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#news">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">Clothes</a></li>
+	</ul>
+      </div>
+    </div>
+    
+    <div class="outer">
+      <br>
+      <center>
+	<span class="logo">
+	  <img src="anne-french.png" height="60" width="300">
+	</span>
+      </center>
+      <div class="header">
+	<ul class="child">
+	  <li><a href="#home">Home</a></li>
+	  <li><a href="#news">About</a></li>
+	  <li><a href="#contact">Contact</a></li>
+	  <li><a href="#about">Clothes</a></li>
+	</ul>
+      </div>
+    </div>
+    
+    <div class="main">
+      <h1>Fixed Top Menu</h1>
+      <h2>Scroll this page to see the effect</h2>
+      <h2>The navigation bar will stay at the top of the page while scrolling</h2>
+      
+    </div>
+    
+  </body>
+</html>
