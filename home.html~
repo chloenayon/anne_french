@@ -6,35 +6,29 @@
     <br>
     <br>
     
-    <div class="header">
-      <ul>
-	<li>Home</li>
-	<li>About</li>
-	<li>Clothing</li>
-	<li>Collections</li>
-      </ul>
-    </div>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Clothing</li>
+      <li>Collections</li>
+    </ul>
 
     <style>
       ul {
          list-style-type: none;
-         margin: 0px;
+         margin: 0;
          width: 100%;
          padding: 0;
          overflow: hidden;
          background-color: #fff;
-         box-shadow: 0px 3px 3px grey;
+         box-shadow: 0px 3px 3px  grey;
       }
 
       li {
          font-family: "Garamond";
          font-size: 18px;
-         color: dimgrey;
-         float: right;
-         position: relative;
-         left: -38%;
-         text-align: left;
-         padding: 20px;
+         float: left;
+         padding: 20px; 
       }
 
 
