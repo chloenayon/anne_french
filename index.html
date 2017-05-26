@@ -62,6 +62,21 @@ ul a {
   margin: 10px 20px;
 }
 
+.drop-content {
+  top: 43px;
+  position: absolute;
+  background-color: #f8f8f8;
+  z-index: 1;
+  width: 1500px;
+  left: -370px;
+  height: 100px;
+  visibility: hidden;
+}
+
+.clothes:hover > .drop-content{
+  visibility:visible;
+}
+
 .content {
   margin-top: 20px;
   padding: 16px;
@@ -71,8 +86,9 @@ ul a {
 
     </style>
   </head>
-  <body>
 
+  <body>
+    
     <div class="navbar">
       <div class="header">
 	<br>
@@ -97,7 +113,12 @@ ul a {
 	  <li><a href="#home">HOME</a></li>
 	  <li><a href="#news">ABOUT</a></li>
 	  <li><a href="#contact">CONTACT</a></li>
-	  <li><a href="#about">CLOTHING</a></li>
+	  <li><a href="#clothing" class="clothes" id="clothes">CLOTHING
+	      <div class="drop-content">
+		hello they call me drop content
+	      </div>
+	    </a>
+	  </li>
 	</ul>
       </div>
     </div>
