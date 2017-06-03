@@ -9,6 +9,7 @@
   overflow: hidden;
   background-color: #fff;
   position: fixed;
+  z-index: 0;
   top: 0;
   width: 100%;
   margin: 0 -10px;
@@ -32,6 +33,7 @@
   width: vw;
   background-color: #fff;
   position: relative;
+  z-index: 1;
   height: 130px;
   margin: 0 -40px;
   box-shadow: 0px 1px 1px grey;
@@ -42,6 +44,8 @@
 }
 
 ul {
+  position: relative;
+  z-index: 1;
   list-style-type: none;
   margin: 0;
 }
@@ -77,30 +81,61 @@ ul a {
   visibility:visible;
 }
 
+.drop-content2 {
+  top: 100px;
+  position: absolute;
+  background-color: #f8f8f8;
+  z-index: -1;
+  width: 1500px;
+  left: -370px;
+  height: 100px;
+  visibility: hidden;
+}
+
+.drop-content3{
+  position: fixed;
+  background-color: #f8f8f8;
+  z-index: 100;
+  width: 1000px;
+  left: -1px;
+  top: 62px;
+  height: 200px;
+  visibility: hidden;
+}
+
 .content {
+  position: absolute;
+  z-index: -2;
   margin-top: 20px;
   padding: 16px;
-  height: 1500px; 
+  height: 1500px;
 }
 
 
     </style>
+
   </head>
 
   <body>
-    
+
     <div class="navbar">
       <div class="header">
-	<br>
-	<ul class="child">
-          <li><a href="#home">HOME</a></li>
-          <li><a href="#news">ABOUT</a></li>
-          <li><a href="#contact">CONTACT</a></li>
-          <li><a href="#about">CLOTHING</a></li>
-	</ul>
+         <br>
+          <ul class="child">
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#news">ABOUT</a></li>
+            <li><a href="#contact">CONTACT</a></li>
+            <li><a href="#clothing" class="clothes2" id="clothes2">CLOTHING
+                </a>
+            </li>
+          </ul>
       </div>
     </div>
-    
+
+    <div class="drop-content3" id="drop-content3">
+      hello they call me drop content
+    </div>
+
     <div class="outer">
       <br>
       <center>
@@ -122,12 +157,33 @@ ul a {
 	</ul>
       </div>
     </div>
-    
+
     <div class="content">
-      
+
       HELLO WORLD
 
     </div>
-    
+
   </body>
+
+  <script>
+
+  var menu = document.getElementById('clothes2');
+  var dropdown = document.getElementById('drop-content3');
+
+  menu.addEventListener("mouseover", func1);
+  menu.addEventListener("mouseout", func2);
+
+  function func1(){
+    console.log("fucking hello");
+    dropdown.style.visibility = 'visible';
+  }
+
+  function func2(){
+    console.log("WHAT THE ABSOLUTE FUCK");
+    dropdown.style.visibility = 'hidden';
+  }
+
+  </script>
+
 </html>
