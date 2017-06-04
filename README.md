@@ -7,4 +7,4 @@
 5. format pictures
 6. ~~create template extension for header~~ 
 7. ~~extend template header to other files: about, contact, clothing~~
-8. do inter-page button links
+8. ~~do inter-page button links~~
