@@ -71,8 +71,8 @@ ul a {
   position: absolute;
   background-color: #f8f8f8;
   z-index: 1;
-  width: 1500px;
-  left: -370px;
+  width: 1400px;
+  left: -360px;
   height: 150px;
   visibility: hidden;
   box-shadow: 0px 1px 1px grey;
@@ -88,7 +88,7 @@ ul a {
   z-index: 1;
   width: 100%;
   left: -1px;
-  top: 52px;
+  top: 62px;
   height: 150px;
   visibility: hidden;
   box-shadow: 0px 1px 1px grey;
@@ -109,11 +109,125 @@ ul a {
   height: 300px;
   border-style: solid;
   border-color: grey;
-  border-width: 5px;
+  border-width: 2px;
 }
 
-.pic1 {
+.pic {
+  max-width: 300px;
   float: left;
+}
+
+.pic2 {
+  max-width: 300px;
+  float: right;
+}
+
+.gradient1 {
+  height: 300;
+  width: 500;
+  background: red;
+}
+
+.gradient2 {
+  height: 300px;
+  width: 500px;
+  background: grey;
+  background: linear-gradient(to right, grey, white);
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+  font-size: 28px;
+}
+
+
+#container {
+    width:80%;
+    overflow: hidden;
+    margin: 50px auto;
+    background: white;
+    -webkit-animation-play-state: running;
+    -moz-animation-play-state: running;
+    -ms-animation-play-state: running;
+    -o-animation-play-state: running;
+    animation-play-state: running;
+
+}
+.photobanner {
+    height: 300px;
+    width: 1250px;
+
+
+}
+.first {
+    -webkit-animation: bannermove 20s linear infinite;
+    -moz-animation: bannermove 20s linear infinite;
+    -ms-animation: bannermove 20s linear infinite;
+    -o-animation: bannermove 20s linear infinite;
+    animation: bannermove 20s linear infinite;
+}
+
+
+.photobanner img {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.photobanner img:hover {
+
+    -webkit-animation-play-state: paused;
+    -moz-animation-play-state: paused;
+    -ms-animation-play-state: paused;
+    -o-animation-play-state: paused;
+    animation-play-state: paused;
+
+}
+
+
+@keyframes "bannermove" {
+    0% {
+	margin-left: 0px;
+    }
+    60% {
+	margin-left: -750px;
+    }
+}
+
+@-moz-keyframes "bannermove" {
+    0% {
+	margin-left: 0px;
+    }
+    100% {
+	margin-left: -750px;
+    }
+
+}
+
+@-webkit-keyframes "bannermove" {
+    0% {
+	margin-left: 0px;
+    }
+    100% {
+	margin-left: -750px;
+    }
+}
+
+@-ms-keyframes "bannermove" {
+    0% {
+	margin-left: 0px;
+    }
+    100% {
+	margin-left: -750px;
+    }
+}
+
+@-o-keyframes "bannermove" {
+    0% {
+	margin-left: 0px;
+    }
+    100% {
+	margin-left: -750px;
+    }
 }
 
     </style>
@@ -156,7 +270,7 @@ ul a {
 	  <li><a href="#contact" onclick="location.href='contact.html'">CONTACT</a></li>
 	  <li><a href="#clothing" class="clothes" id="clothes" onclick="location.href='clothing.html'">CLOTHING
 	      <div class="drop-content">
-		hello they call me drop content
+  		         WESTERN COLLECTION
 	      </div>
 	    </a>
 	  </li>
@@ -166,8 +280,46 @@ ul a {
 
     <div class="content">
 
+      <div id="container">
+        <div class="photobanner">
+          <img class="first" src="img1.jpg" alt="" height="300">
+    	    <img src="img/shirt1.jpg" alt="" height="300">
+    	    <img src="img/shirt3.jpg" alt="" height="300">
+    	    <img src="img/shirt4.jpg" alt="" height="300">
+    	    <img src="img/shirt5.jpg" alt="" height="300">
+    	    <img src="img/western-1.jpg" alt="" height="300">
+    	    <img src="img/western-2.jpg" alt="" height="300">
+    	    <img src="img/western-3.jpg" alt="" height="300">
+    	    <img src="img/lace_1.jpg" alt="" height="300">
+    	    <img src="img/lace_2.jpg" alt="" height="300">
+    	    <img src="img/shirt5.jpg" alt="" height="300">
+    	    <img src="img/western-4.jpg" alt="" height="300">
+    	    <img src="img/western-5.jpg" alt="" height="300">
+    	 </div>
+     </div>
+
         <div class="display-1">
-          <img class="pic1" src="img/shirt1.jpg" height="300" width="200">
+          <img class="pic2" src="img/shirt5.jpg" height="300">
+          <img class="pic2" src="img/shirt3.jpg" height="300">
+          <img class="pic2" src="img/shirt4.jpg" height="300">
+          <div class="gradient2" onclick="location.href='clothing.html'">
+            <br>
+            <br>
+            <br>
+
+            SHOP OUR NEWEST STYLES
+          </div>
+        </div>
+
+        <br>
+        <br>
+        <br>
+
+        <div class="display-1">
+          <img class="pic" src="img/shirt1.jpg" height="300">
+          <img class="pic" src="img/lace_1.jpg" height="300">
+          <img class="pic" src="img/lace_2.jpg" height="300">
+          <div class="gradient1"></div>
         </div>
 
     </div>
