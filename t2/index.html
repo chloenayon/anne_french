@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <title>Anne-French</title>
 
@@ -28,40 +32,137 @@
       padding-top: 70px;
     }
 
+    .content {
+      padding-top: 70px;
+    }
+
     .anne-french-img {
       width: 300px;
       height: auto;
     }
+
+    #photo-container {
+        width:80%;
+        overflow: hidden;
+        margin: 50px auto;
+        background: white;
+        -webkit-animation-play-state: running;
+        -moz-animation-play-state: running;
+        -ms-animation-play-state: running;
+        -o-animation-play-state: running;
+        animation-play-state: running;
+
+    }
+
+    .photobanner {
+        height: 300px;
+        width: 1250px;
+    }
+
+    .first {
+        -webkit-animation: bannermove 20s linear infinite;
+        -moz-animation: bannermove 20s linear infinite;
+        -ms-animation: bannermove 20s linear infinite;
+        -o-animation: bannermove 20s linear infinite;
+        animation: bannermove 20s linear infinite;
+    }
+
+
+    .photobanner img {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+    }
+
+    .photobanner img:hover {
+
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -ms-animation-play-state: paused;
+        -o-animation-play-state: paused;
+        animation-play-state: paused;
+
+    }
+
+
+    @keyframes "bannermove" {
+        0% {
+    	margin-left: 0px;
+        }
+        60% {
+    	margin-left: -750px;
+        }
+    }
+
+    @-moz-keyframes "bannermove" {
+        0% {
+    	margin-left: 0px;
+        }
+        100% {
+    	margin-left: -750px;
+        }
+
+    }
+
+    @-webkit-keyframes "bannermove" {
+        0% {
+    	margin-left: 0px;
+        }
+        100% {
+    	margin-left: -750px;
+        }
+    }
+
+    @-ms-keyframes "bannermove" {
+        0% {
+    	margin-left: 0px;
+        }
+        100% {
+    	margin-left: -750px;
+        }
+    }
+
+    @-o-keyframes "bannermove" {
+        0% {
+    	margin-left: 0px;
+        }
+        100% {
+    	margin-left: -750px;
+        }
+      }
 
     </style>
 
     <nav class="navbar navbar-default navbar-fixed-top">
       <h3>
         <center>
-          <img alt="anne-french-logo" src="../img/anne-french.png" class="anne-french-img">
+          <img alt="anne-french-logo" src="../img/anne-french.png" class="anne-french-img" onclick="location.href='index.html'">
         </center>
       </h3>
       <div class="container">
-	      <ul class="nav navbar-nav">
-	          <li><a href="#" onclick="location.href='index.html'">NEW</a></li>
-            <li class="dropdown">
-              <a href="#" onclick="location.href='collections.html'" class="dropdown-toggle" id="collection-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                COLLECTIONS
-                <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="collection-dropdown">
-                <li><a href="#" onclick="location.href='index.html'">SPRING 2017</a></li>
-                <li><a href="#" onclick="location.href='index.html'">SUMMER 2017</a></li>
-                <li><a href="#" onclick="location.href='index.html'">FALL 2017</a></li>
-                <li><a href="#" onclick="location.href='index.html'">SPRING 2018</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a href="#" onclick="location.href='clothing.html'" class="dropdown-toggle" id="clothing-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	       <ul class="nav navbar-nav">
+           <li><a href="#" onclick="location.href='index.html'">NEW</a></li>
+
+           <li class="dropdown">
+             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> COLLECTIONS <span class="caret"></span></a>
+             <ul class="dropdown-menu">
+               <li><a href="#" onclick="location.href='index.html'">SPRING 2017</a></li>
+               <li><a href="#" onclick="location.href='index.html'">SUMMER 2017</a></li>
+               <li><a href="#" onclick="location.href='index.html'">FALL 2017</a></li>
+               <li><a href="#" onclick="location.href='index.html'">SPRING 2018</a></li>
+             </ul>
+           </li>
+
+           <li class="dropdown">
+              <a href="#" class="dropdown-toggle" id="clothing-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 CLOTHING
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="clothing-dropdown">
+                <li><a href="#" onclick="location.href='clothing.html'"> SEE ALL </a></li>
+                <li role="separator" class="divider"></li>
                 <li class="dropdown-header">TOPS</li>
                 <li><a href="#">knit</a></li>
                 <li role="separator" class="divider"></li>
@@ -77,8 +178,33 @@
       </div>
     </nav>
 
-    <h1>Hello, world!</h1>
+    <div class="content">
 
+      <div id="photo-container">
+        <div class="photobanner">
+          <img class="first" src="../img/shirt1.jpg" alt="" height="300">
+          <img src="../img/shirt3.jpg" alt="" height="300">
+          <img src="../img/shirt4.jpg" alt="" height="300">
+          <img src="../img/shirt5.jpg" alt="" height="300">
+          <img src="../img/western-1.jpg" alt="" height="300">
+          <img src="../img/western-2.jpg" alt="" height="300">
+          <img src="../img/western-3.jpg" alt="" height="300">
+          <img src="../img/lace_1.jpg" alt="" height="300">
+          <img src="../img/lace_2.jpg" alt="" height="300">
+          <img src="../img/shirt5.jpg" alt="" height="300">
+          <img src="../img/western-4.jpg" alt="" height="300">
+          <img src="../img/western-5.jpg" alt="" height="300">
+       </div>
+     </div>
+
+     <div class="container">
+       <div class="jumbotron">
+         <img src="../img/western_index.png" alt="" height="500">
+       </div>
+     </div>
+
+
+    </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
