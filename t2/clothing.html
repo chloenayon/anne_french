@@ -42,6 +42,16 @@
       height: auto;
     }
 
+    .thumb-pic{
+      height: 250px;
+      width: auto;
+    }
+
+    .thumbnail{
+      height: 400px;
+      width: 250px;
+    }
+
     </style>
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -89,61 +99,63 @@
 
     <div class="content">
 
-      <div class="container">
-        <div class="row">
-
-          <div class="col-sm-3">
-            <div class="thumbnail">
-              <a href="../img/shirt4.jpg">
-                <img src="../img/shirt4.jpg" alt="redshirt" width="200">
-                <div class="caption">
-                  <p> this is a picture </p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-sm-3">
-            <div class="thumbnail">
-              <a href="../img/shirt4.jpg">
-                <img src="../img/shirt4.jpg" alt="redshirt" width="200">
-                <div class="caption">
-                  <p> this is a picture </p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-sm-3">
-            <div class="thumbnail">
-              <a href="../img/shirt4.jpg">
-                <img src="../img/shirt4.jpg" alt="redshirt" width="200">
-                <div class="caption">
-                  <p> this is a picture </p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <div class="col-sm-3">
-            <div class="thumbnail">
-              <a href="../img/shirt4.jpg">
-                <img src="../img/shirt4.jpg" alt="redshirt" width="200">
-                <div class="caption">
-                  <p> this is a picture </p>
-                </div>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
+      <div class="jumbotron">
+        <center>
+          <h2>SHOP OUR NEW PIECES FROM THE FALL 2017 COLLECTION</h2>
+        </center>
       </div>
 
-
-
+      <div class="container">
+        <div class="row" id="picPlace">
+        </div>
+      </div>
 
     </div>
+
+    <script>
+
+    var products = [];
+
+    products["colorblock-shirt"] = ["Sally Shirt", "Colorblocked Jumper with Pockets", 29.99, "this is an excellent article of clothing", ["../img/fall2017/colorblock-front-red.jpg", "../img/fall2017/colorblock-back-red.jpg", "../img/fall2017/colorblock-front-grey.jpg"]]; //name, description, price, list of other angles
+    products["fringe-front"] = ["Amy Shirt", "Crocheted Shirt with Fringe Detail", 9.99, "this is an excellent article of clothing", ["../img/fall2017/fringe-front.jpg", "../img/fall2017/fringe-back.jpg", "../img/fall2017/fringe-side.jpg"]];
+    products["hilow"] = ["Anne Shirt", "Hi-Low Shirt With Side Slit", 9.99, "this is an excellent article of clothing", ["../img/fall2017/hilow-green.jpg", "../img/fall2017/hilow-black.jpg", "../img/fall2017/hilow-purple.jpg", "../img/fall2017/hilow-red.jpg"]];
+    products["hoodie"] = ["Julia Hoodie", "Knit Striped Shirt With Lace Detail", 9.99, "this is an excellent article of clothing", ["../img/fall2017/hoodie-front.jpg", "../img/fall2017/hoodie-back.jpg", "../img/fall2017/hoodie-hooded.jpg"]];
+    products["polka-shirt"] = ["Cassie Shirt", "Polka-Dot Shirt With Ruffled Sleeves", 9.99, "this is an excellent article of clothing", ["../img/fall2017/polka-front.jpg", "../img/fall2017/polka-back.jpg"]];
+    products["cardigan_1"] = ["Alyssa Cardigan", "Diamond Striped Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-1.jpg"]];
+    products["cardigan_2"] = ["Lynn Cardigan", "Striped Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-2.jpg"]];
+    products["cardigan_3"] = ["Alexis Cardigan", "Chevron-Striped Crocheted Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-3.jpg"]];
+
+    setProducts();
+
+    function setProducts(){
+
+      var ins = document.getElementById('picPlace');
+
+      for (var key in products){
+        var curr = products[key];
+        ins.innerHTML += "<div class='col-sm-3'><div class='thumbnail'><img src='" + curr[4][0] + "' onclick='redirect(this)'' id='"+ key +"' class='thumb-pic'><div class='caption'><p>" + curr[0] + "</p></div></div></div>";
+      }
+    }
+
+    //products.push({
+      //key: "colorblock-shirt",
+      //value: ["Colorblock Shirt", "this is a colorblocked shirt in multiple colors", 29.99, ["../img/colorblock-back-red.jpg", "../img/colorblock-front-grey.jpg"]] //name, description, price, list of other angles
+    //});
+
+    function redirect(img){
+      var idy = img.id;
+      var listy = [];
+      listy = products[idy];
+      console.log(listy);
+      sessionStorage.setItem('item', img.src);
+      sessionStorage.setItem('info', JSON.stringify(listy));
+      sessionStorage.setItem('prods', products);
+      window.location.href = 'item.html';
+    }
+
+    </script>
+
+
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
