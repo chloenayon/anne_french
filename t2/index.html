@@ -42,7 +42,7 @@
     }
 
     #photo-container {
-        width:80%;
+        width:90%;
         overflow: hidden;
         margin: 50px auto;
         background: white;
@@ -56,7 +56,7 @@
 
     .photobanner {
         height: 300px;
-        width: 1250px;
+        width: 1400px;
     }
 
     .first {
@@ -133,6 +133,64 @@
         }
       }
 
+    .col-lg-4 {
+      position: relative;
+      width: 45%;
+      height: auto;
+      background-color: blue;
+      padding: 0px;
+      margin: 30px;
+      display: inline-block;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .container{
+      width: 95%;
+      position: relative;
+      z-index: 0;
+    }
+
+    .row {
+      width: 100%;
+      position: relative;
+      z-index: 0;
+    }
+
+    .tile {
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+      position: relative;
+      z-index: 0;
+    }
+
+    #tile-button {
+      position: relative;
+      z-index: 1;
+      left: 45%;
+    }
+
+    #imgOne {
+      -ms-transform: scale(1.3, 1.3); /* IE 9 */
+      -webkit-transform: scale(1.3, 1.3); /* Safari */
+      transform: scale(1.3, 1.3);
+
+      transform-origin: right 15%;
+
+      object-fit: cover;
+    }
+
+    #imgTwo {
+      -ms-transform: scale(1.5, 1.5); /* IE 9 */
+      -webkit-transform: scale(1.5, 1.5); /* Safari */
+      transform: scale(1.5, 1.5);
+
+      transform-origin: top left;
+
+      object-fit: cover;
+    }
+
     </style>
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -181,31 +239,82 @@
     <div class="content">
 
       <div id="photo-container">
-        <div class="photobanner">
-          <img class="first" src="../img/shirt1.jpg" alt="" height="300">
-          <img src="../img/shirt3.jpg" alt="" height="300">
-          <img src="../img/shirt4.jpg" alt="" height="300">
-          <img src="../img/shirt5.jpg" alt="" height="300">
-          <img src="../img/western-1.jpg" alt="" height="300">
-          <img src="../img/western-2.jpg" alt="" height="300">
-          <img src="../img/western-3.jpg" alt="" height="300">
-          <img src="../img/lace_1.jpg" alt="" height="300">
-          <img src="../img/lace_2.jpg" alt="" height="300">
-          <img src="../img/shirt5.jpg" alt="" height="300">
-          <img src="../img/western-4.jpg" alt="" height="300">
-          <img src="../img/western-5.jpg" alt="" height="300">
+        <div class="photobanner" id="photobanner">
+          <img class="first" src="../img/fall2017/polka-front.jpg" alt="" height="300">
        </div>
      </div>
 
      <div class="container">
-       <div class="jumbotron">
-         <img src="../img/western_index.png" alt="" height="500">
-       </div>
+       <!--<div class="jumbotron">-->
+         <div class="row align-items-center">
+           <div class="col-lg-4">
+             <img class="tile" src="../img/fall2017/cardigan-3.jpg" alt="" id="imgOne">
+             <button type="button" id="tile-button" class="btn btn-secondary btn-lg">Large button</button>
+           </div>
+
+           <div class="col-lg-4">
+             <img class="tile" src="../img/fall2017/fringe-side.jpg" alt="" id="imgTwo">
+             <button type="button" id="tile-button" class="btn btn-secondary btn-lg">Large button</button>
+           </div>
+         </div>
+       <!--</div>-->
      </div>
 
+     <script>
 
-     <div>
-     </div>
+     var products = {};
+
+     products["colorblock-shirt"] = ["Sally Shirt", "Colorblocked Jumper with Pockets", 29.99, "this is an excellent article of clothing", ["../img/fall2017/colorblock-front-red.jpg", "../img/fall2017/colorblock-back-red.jpg", "../img/fall2017/colorblock-front-grey.jpg"]]; //name, description, price, list of other angles
+     products["fringe-front"] = ["Amy Shirt", "Crocheted Shirt with Fringe Detail", 9.99, "this is an excellent article of clothing", ["../img/fall2017/fringe-front.jpg", "../img/fall2017/fringe-back.jpg", "../img/fall2017/fringe-side.jpg"]];
+     products["hilow"] = ["Anne Shirt", "Hi-Low Shirt With Side Slit", 9.99, "this is an excellent article of clothing", ["../img/fall2017/hilow-green.jpg", "../img/fall2017/hilow-black.jpg", "../img/fall2017/hilow-purple.jpg", "../img/fall2017/hilow-red.jpg"]];
+     products["hoodie"] = ["Julia Hoodie", "Knit Striped Shirt With Lace Detail", 9.99, "this is an excellent article of clothing", ["../img/fall2017/hoodie-front.jpg", "../img/fall2017/hoodie-back.jpg", "../img/fall2017/hoodie-hooded.jpg"]];
+     products["polka-shirt"] = ["Cassie Shirt", "Polka-Dot Shirt With Ruffled Sleeves", 9.99, "this is an excellent article of clothing", ["../img/fall2017/polka-front.jpg", "../img/fall2017/polka-back.jpg"]];
+     products["cardigan_1"] = ["Alyssa Cardigan", "Diamond Striped Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-1.jpg"]];
+     products["cardigan_2"] = ["Lynn Cardigan", "Striped Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-2.jpg"]];
+     products["cardigan_3"] = ["Alexis Cardigan", "Chevron-Striped Crocheted Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-3.jpg"]];
+     products["bell-sleeve"] = ["Lace Trim Bell Sleeve", "Bell Sleeved Shirt with Lace Detail", 5.00, "this is an excellent article of clothing", ["../img/fall2017/bell-sleeve-wine.jpg", "../img/fall2017/bell-sleeve-purple.jpg", "../img/fall2017/bell-sleeve-olive.jpg", "../img/fall2017/bell-sleeve-black.jpg"]]
+
+     setBanner();
+
+     setProducts();
+
+     function setBanner(){
+
+       var ins = document.getElementById('photobanner');
+
+       for (var key in products){
+         var curr = products[key];
+         ins.innerHTML += "<img src='" + curr[4][0] + "' alt='' onclick='redirect(this)' id='"+ key +"'height='300'>";
+       }
+     }
+
+     function redirect(img){
+       var idy = img.id;
+       var listy = [];
+       listy = products[idy];
+       console.log(listy);
+       sessionStorage.setItem('item', img.src);
+       sessionStorage.setItem('info', JSON.stringify(listy));
+       sessionStorage.setItem('prods', products);
+       window.location.href = 'item.html';
+     }
+
+     function setProducts(){
+       sessionStorage.setItem("products", JSON.stringify(products));
+     }
+
+/*
+     $(function() {
+       $("#imgOne").function(){
+         $(this).css({'transform': 'scale(1.5, 1.5)'});
+       };
+     });
+     */
+
+
+     </script>
+
+
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

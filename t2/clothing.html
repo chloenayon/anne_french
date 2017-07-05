@@ -105,6 +105,12 @@
         </center>
       </div>
 
+      <ol class="breadcrumb">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Library</a></li>
+        <li class="active">Data</li>
+      </ol>
+
       <div class="container">
         <div class="row" id="picPlace">
         </div>
@@ -114,16 +120,7 @@
 
     <script>
 
-    var products = [];
-
-    products["colorblock-shirt"] = ["Sally Shirt", "Colorblocked Jumper with Pockets", 29.99, "this is an excellent article of clothing", ["../img/fall2017/colorblock-front-red.jpg", "../img/fall2017/colorblock-back-red.jpg", "../img/fall2017/colorblock-front-grey.jpg"]]; //name, description, price, list of other angles
-    products["fringe-front"] = ["Amy Shirt", "Crocheted Shirt with Fringe Detail", 9.99, "this is an excellent article of clothing", ["../img/fall2017/fringe-front.jpg", "../img/fall2017/fringe-back.jpg", "../img/fall2017/fringe-side.jpg"]];
-    products["hilow"] = ["Anne Shirt", "Hi-Low Shirt With Side Slit", 9.99, "this is an excellent article of clothing", ["../img/fall2017/hilow-green.jpg", "../img/fall2017/hilow-black.jpg", "../img/fall2017/hilow-purple.jpg", "../img/fall2017/hilow-red.jpg"]];
-    products["hoodie"] = ["Julia Hoodie", "Knit Striped Shirt With Lace Detail", 9.99, "this is an excellent article of clothing", ["../img/fall2017/hoodie-front.jpg", "../img/fall2017/hoodie-back.jpg", "../img/fall2017/hoodie-hooded.jpg"]];
-    products["polka-shirt"] = ["Cassie Shirt", "Polka-Dot Shirt With Ruffled Sleeves", 9.99, "this is an excellent article of clothing", ["../img/fall2017/polka-front.jpg", "../img/fall2017/polka-back.jpg"]];
-    products["cardigan_1"] = ["Alyssa Cardigan", "Diamond Striped Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-1.jpg"]];
-    products["cardigan_2"] = ["Lynn Cardigan", "Striped Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-2.jpg"]];
-    products["cardigan_3"] = ["Alexis Cardigan", "Chevron-Striped Crocheted Cardigan", 9.99, "this is an excellent article of clothing", ["../img/fall2017/cardigan-3.jpg"]];
+    var products = JSON.parse(sessionStorage.getItem("products"));
 
     setProducts();
 
@@ -136,11 +133,6 @@
         ins.innerHTML += "<div class='col-sm-3'><div class='thumbnail'><img src='" + curr[4][0] + "' onclick='redirect(this)'' id='"+ key +"' class='thumb-pic'><div class='caption'><p>" + curr[0] + "</p></div></div></div>";
       }
     }
-
-    //products.push({
-      //key: "colorblock-shirt",
-      //value: ["Colorblock Shirt", "this is a colorblocked shirt in multiple colors", 29.99, ["../img/colorblock-back-red.jpg", "../img/colorblock-front-grey.jpg"]] //name, description, price, list of other angles
-    //});
 
     function redirect(img){
       var idy = img.id;
