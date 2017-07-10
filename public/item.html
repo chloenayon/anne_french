@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Anne-French</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <style>
+
+    body {
+      padding-top: 70px;
+    }
+
+    .anne-french-img {
+      width: 300px;
+      height: auto;
+    }
+
+    .col-md-3 {
+      padding: 5px;
+      margin: 0px;
+      margin-left: 0px;
+      overflow: hidden;
+    }
+
+    .col-md-1{
+      padding: 5px;
+      margin: 0px;
+      margin-left: 0px;
+    }
+
+    .col-sm-1{
+      margin-left: 150px;
+    }
+
+    .mainPic {
+      position: relative;
+      z-index: 5;
+      float: left;
+    }
+
+    .frame {
+      width: auto;
+      height: 100%;
+      overflow: hidden;
+      display: table;
+      position: relative;
+      float: left;
+    }
+
+    </style>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <h3>
+        <center>
+          <img alt="anne-french-logo" src="../img/anne-french.png" class="anne-french-img" onclick="location.href='index.html'">
+        </center>
+      </h3>
+      <div class="container">
+	      <ul class="nav navbar-nav">
+	          <li><a href="#" onclick="location.href='index.html'">NEW</a></li>
+            <li class="dropdown">
+              <a href="#" onclick="location.href='collections.html'" class="dropdown-toggle" id="collection-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                COLLECTIONS
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="collection-dropdown">
+                <li><a href="#" onclick="location.href='index.html'">SPRING 2017</a></li>
+                <li><a href="#" onclick="location.href='index.html'">SUMMER 2017</a></li>
+                <li><a href="#" onclick="location.href='index.html'">FALL 2017</a></li>
+                <li><a href="#" onclick="location.href='index.html'">SPRING 2018</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" onclick="location.href='clothing.html'" class="dropdown-toggle" id="clothing-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                CLOTHING
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="clothing-dropdown">
+                <li class="dropdown-header">TOPS</li>
+                <li><a href="#">knit</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">DRESSES</li>
+                <li><a href="#">knit</a></li>
+                <li><a href="#">sweater</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">SWEATERS & VESTS</li>
+                <li><a href="#">knits</a></li>
+              </ul>
+            </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="content">
+
+      <h1>Hello, world!</h1>
+      <!--<button onclick="getImg()">CLICK MEH</button>-->
+
+      <div class="row" id="gallery-container">
+        <div class="col-sm-1" id="gallery">
+        </div>
+        <div class="col-md-3" id="main-container">
+            <div class="frame">
+              <img class="mainPic" src="" id="main" width="350" height="auto">
+            </div>
+        </div>
+        <div class="col-sm-4" id="info-container">
+        </div>
+      </div>
+
+    </div>
+
+    <script>
+
+    getMainImg();
+
+    setAll();
+
+    var currPic;
+
+    function getMainImg(){
+      var mainItem = sessionStorage.getItem('item');
+      document.getElementById("main").src = mainItem;
+    }
+
+    function setAll(curr){
+      var info = JSON.parse(sessionStorage.getItem('info'));
+      var subItems = info[4];
+
+      for (i = 0; i < subItems.length; i++){
+        document.getElementById('gallery').innerHTML += "<div class='row'> <div class='col-md-1'><img src='" + subItems[i] + "' id='side' tagname='*' onclick='switchPics(this)' width='75' height='auto'></div></div>";
+      }
+
+      var details = document.getElementById('info-container');
+      details.innerHTML += "<h3>" + info[0] + "</h3>";
+      details.innerHTML += "<h5>" + info[1] + "</h5><hr />";
+      details.innerHTML += "<h5><span class='glyphicon glyphicon-usd' aria-hidden='true'></span>" + info[2] + "</h5><br><br>";
+      details.innerHTML += "<h5>SIZES</h5><hr />";
+      details.innerHTML += "<h5>SM<span style='display:inline-block; width: 40px;'></span>MED<span style='display:inline-block; width: 40px;'></span>LRG</h5><br><br>";
+      details.innerHTML += "<h5>Description</h5><hr />";
+      details.innerHTML += "<h5>" + info[3] + "</h5>"
+    }
+
+    function switchPics(nextPic){
+      document.getElementById("main").src = nextPic.src;
+      nextPic.style.border = "thin solid black";
+    }
+
+    $(function() {
+      $("#main").mouseover(
+        function (){
+            $(this).css({'transform': 'scale(1.5, 1.5)'});
+        });
+      $("#main").mouseout(
+        function (){
+            $(this).css({'transform': 'scale(1, 1)'});
+        });
+      $("#main").mousemove(
+        function (e){
+            $(this).css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+        });
+    });
+
+    $(document).ready(function () {
+        $('.dropdown-toggle').dropdown();
+    });
+
+
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
