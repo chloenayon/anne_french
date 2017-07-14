@@ -26,7 +26,7 @@
     <style>
 
     body {
-      padding-top: 70px;
+      padding-top: 130px;
     }
 
     .anne-french-img {
@@ -112,7 +112,6 @@
 
     <div class="content">
 
-      <h1>Hello, world!</h1>
       <!--<button onclick="getImg()">CLICK MEH</button>-->
 
       <div class="row" id="gallery-container">
@@ -147,8 +146,15 @@
       var subItems = info[4];
 
       for (i = 0; i < subItems.length; i++){
-        document.getElementById('gallery').innerHTML += "<div class='row'> <div class='col-md-1'><img src='" + subItems[i] + "' id='side' tagname='*' onclick='switchPics(this)' width='75' height='auto'></div></div>";
+        if (i == 0){
+          document.getElementById('gallery').innerHTML += "<div class='row'> <div class='col-md-1'><img src='" + subItems[i] + "' id='firstSide' tagname='*' onclick='switchPics(this)' width='75' height='auto'></div></div>";
+        } else {
+          document.getElementById('gallery').innerHTML += "<div class='row'> <div class='col-md-1'><img src='" + subItems[i] + "' id='side' tagname='*' onclick='switchPics(this)' width='75' height='auto'></div></div>";
+        }
       }
+
+      currPic = document.getElementById('firstSide');
+      currPic.style.border = "thin solid black";
 
       var details = document.getElementById('info-container');
       details.innerHTML += "<h3>" + info[0] + "</h3>";
@@ -161,6 +167,8 @@
     }
 
     function switchPics(nextPic){
+      currPic.style.border = 0;
+      currPic = nextPic;
       document.getElementById("main").src = nextPic.src;
       nextPic.style.border = "thin solid black";
     }
