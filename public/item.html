@@ -66,6 +66,17 @@
       float: left;
     }
 
+    .zoom-container {
+      position: relative;
+      visibility: hidden;
+      z-index: 3;
+    }
+
+    #info-container {
+      position: static;
+      z-index: 0;
+    }
+
     </style>
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -122,7 +133,12 @@
               <img class="mainPic" src="" id="main" width="350" height="auto">
             </div>
         </div>
-        <div class="col-sm-4" id="info-container">
+        <div class="col-md-3" id="zoom-container">
+            <div class="frame">
+              <img class="zoomPic" src="" id="zoom" width="350" height="auto">
+            </div>
+        </div>
+        <div class="" id="info-container">
         </div>
       </div>
 
@@ -135,10 +151,13 @@
     setAll();
 
     var currPic;
+    var zoomImg;
 
     function getMainImg(){
       var mainItem = sessionStorage.getItem('item');
       document.getElementById("main").src = mainItem;
+      document.getElementById("zoom").src = mainItem;
+      zoomImg = document.getElementById("zoom");
     }
 
     function setAll(curr){
@@ -170,21 +189,24 @@
       currPic.style.border = 0;
       currPic = nextPic;
       document.getElementById("main").src = nextPic.src;
+      document.getElementById("zoom").src = nextPic.src;
       nextPic.style.border = "thin solid black";
     }
 
     $(function() {
       $("#main").mouseover(
         function (){
-            $(this).css({'transform': 'scale(1.5, 1.5)'});
+            $(zoomImg).css({'visibility':'visible'});
+            $(zoomImg).css({'transform': 'scale(3.5, 3.5)'});
         });
       $("#main").mouseout(
         function (){
-            $(this).css({'transform': 'scale(1, 1)'});
+          $(zoomImg).css({'visibility': 'hidden'});
+            //$(this).css({'transform': 'scale(1, 1)'});
         });
       $("#main").mousemove(
         function (e){
-            $(this).css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+          $(zoomImg).css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
         });
     });
 
