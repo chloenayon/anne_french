@@ -29,6 +29,10 @@
       padding-top: 130px;
     }
 
+    .content {
+      margin-top: 15px;
+    }
+
     .anne-french-img {
       width: 300px;
       height: auto;
@@ -66,15 +70,21 @@
       float: left;
     }
 
-    .zoom-container {
+    #left-container {
       position: relative;
-      visibility: hidden;
-      z-index: 3;
     }
 
     #info-container {
-      position: static;
-      z-index: 0;
+      position: relative;
+      margin-left: 15px;
+    }
+
+    #zoom-container {
+      position: absolute;
+      visibility: hidden;
+      left: 600px;
+      padding: 5px;
+      z-index: 10;
     }
 
     </style>
@@ -82,7 +92,7 @@
     <nav class="navbar navbar-default navbar-fixed-top">
       <h3>
         <center>
-          <img alt="anne-french-logo" src="../img/anne-french.png" class="anne-french-img" onclick="location.href='index.html'">
+          <img alt="anne-french-logo" src="img/anne-french.png" class="anne-french-img" onclick="location.href='index.html'">
         </center>
       </h3>
       <div class="container">
@@ -127,20 +137,30 @@
 
       <div class="row" id="gallery-container">
         <div class="col-sm-1" id="gallery">
-        </div>
-        <div class="col-md-3" id="main-container">
-            <div class="frame">
-              <img class="mainPic" src="" id="main" width="350" height="auto">
-            </div>
-        </div>
-        <div class="col-md-3" id="zoom-container">
-            <div class="frame">
-              <img class="zoomPic" src="" id="zoom" width="350" height="auto">
-            </div>
-        </div>
-        <div class="" id="info-container">
-        </div>
       </div>
+
+      <div class="row">
+      <div class="col-md-3" id="main-container">
+          <div class="frame">
+            <img class="mainPic" src="" id="main" width="350" height="auto">
+          </div>
+      </div>
+
+      <!--<div class="col-md-3" id="left-container">-->
+
+        <div class="col-md-3" id="info-container">
+        </div>
+
+      <!--</div>-->
+
+      <div class="" id="zoom-container">
+          <div class="frame">
+            <img class="zoomPic" src="" id="zoom" width="350" height="auto">
+          </div>
+      </div>
+
+    </div>
+  </div>
 
     </div>
 
@@ -178,7 +198,7 @@
       var details = document.getElementById('info-container');
       details.innerHTML += "<h3>" + info[0] + "</h3>";
       details.innerHTML += "<h5>" + info[1] + "</h5><hr />";
-      details.innerHTML += "<h5><span class='glyphicon glyphicon-usd' aria-hidden='true'></span>" + info[2] + "</h5><br><br>";
+      details.innerHTML += "<h5><span class='glyphicon glyphicon-usd' aria-hidden='true'></span></h5><br><br>";
       details.innerHTML += "<h5>SIZES</h5><hr />";
       details.innerHTML += "<h5>SM<span style='display:inline-block; width: 40px;'></span>MED<span style='display:inline-block; width: 40px;'></span>LRG</h5><br><br>";
       details.innerHTML += "<h5>Description</h5><hr />";
