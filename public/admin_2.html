@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Anne-French</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <style>
+
+    body {
+      padding-top: 70px;
+    }
+
+    .anne-french-img {
+      width: 300px;
+      height: auto;
+    }
+
+    .content {
+      padding-top: 70px;
+      margin-left: 50px;
+      width: 95%;
+    }
+
+    </style>
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <h3>
+        <center>
+          <img alt="anne-french-logo" src="img/anne-french.png" class="anne-french-img" onclick="location.href='index.html'">
+        </center>
+      </h3>
+    </nav>
+
+    <div class="content">
+
+    <ul class="nav nav-tabs">
+      <li><a href="#">Home</a></li>
+      <li class="active"><a href="#">Menu 1</a></li>
+      <li><a href="#">Menu 2</a></li>
+      <li><a href="#">Menu 3</a></li>
+    </ul>
+    <br>
+
+      <form method="POST">
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Image</label>
+        <div class="col-10">
+          <input type="file" name="pic" accept="image/*" value="" id="image">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Name</label>
+        <div class="col-10">
+          <input class="form-control" type="text" value="Item of Clothing" id="name" name="name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Style Number</label>
+        <div class="col-10">
+          <textarea class="form-control" id="style" name="style" value="" rows="1"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Brief Description</label>
+        <div class="col-10">
+          <textarea class="form-control" id="desc" name="desc" value="" rows="2"></textarea>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-number-input" class="col-2 col-form-label">Price</label>
+        <div class="col-10">
+          <input class="form-control" type="number" value="42" id="price" name="price">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-number-input" class="col-2 col-form-label">Sizes</label>
+        <div class="col-10">
+          <select multiple class="form-control" id="sizes" value="" name="sizes">
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-color-input" class="col-2 col-form-label">Color</label>
+        <div class="col-10">
+          <input class="form-control" type="color" value="#563d7c" id="color" name="color">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">About This Product</label>
+        <div class="col-10">
+          <textarea class="form-control" id="about" rows="3" name="about" value=""></textarea>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <br>
+    <br>
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

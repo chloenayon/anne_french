@@ -1,0 +1,61 @@
+body {
+  padding-top: 130px;
+}
+
+.content {
+  margin-top: 15px;
+}
+
+.anne-french-img {
+  width: 300px;
+  height: auto;
+}
+
+.col-md-3 {
+  padding: 5px;
+  margin: 0px;
+  margin-left: 0px;
+  overflow: hidden;
+}
+
+.col-md-1{
+  padding: 5px;
+  margin: 0px;
+  margin-left: 0px;
+}
+
+.col-sm-1{
+  margin-left: 150px;
+}
+
+.mainPic {
+  position: relative;
+  z-index: 5;
+  float: left;
+}
+
+.frame {
+  width: auto;
+  height: 100%;
+  overflow: hidden;
+  display: table;
+  position: relative;
+  float: left;
+}
+
+#left-container {
+  position: relative;
+}
+
+#info-container {
+  position: relative;
+  margin-left: 15px;
+}
+
+#zoom-container {
+  position: absolute;
+  visibility: hidden;
+  left: 600px;
+  padding: 5px;
+  z-index: 10;
+}
