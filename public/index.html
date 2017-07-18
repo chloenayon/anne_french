@@ -135,10 +135,7 @@
                 <span class="caret"></span>
               </a>
               <ul class="dropdown-menu" aria-labelledby="clothing-dropdown">
-                <li>
-                    <input type="submit" value="SEE ALL" onclick="location.href='http://localhost:8080/clothing'">
-                </li>
-                <!--<li><a href="#" onclick="location.href='clothing.html'"> SEE ALL </a></li>-->
+                <li><a href="#" onclick="window.location.href='http://localhost:8080/clothing'"> SEE ALL </a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">TOPS</li>
                 <li><a href="#">knit</a></li>
@@ -174,12 +171,13 @@
              <img class="tile" src="img/fall2017/fringe-side.jpg" onclick="window.location.href = 'clothing.html'" alt="" id="imgTwo">
            </div>
          </div>
-
+         <!--
     <footer class="footer">
       <div class="container">
         <p class="footer-block">Place sticky footer content here.</p>
       </div>
     </footer>
+  -->
 
      </div>
 
@@ -226,11 +224,13 @@
        sessionStorage.setItem("products", JSON.stringify(products));
      }
 
+/*
      function redirect(where){
        var xhr = new XMLHttpRequest();
        xhr.open('GET', where, true);
        xhr.send();
      }
+     */
 /*
      $(function() {
        $("#imgOne").function(){
