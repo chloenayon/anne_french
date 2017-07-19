@@ -147,12 +147,14 @@
 
     function redirect(img){
       var idy = img.id;
+      /*
       var listy = [];
       listy = products[idy];
       console.log(listy);
       sessionStorage.setItem('item', img.src);
       sessionStorage.setItem('info', JSON.stringify(listy));
       sessionStorage.setItem('prods', products);
+      */
       window.location.href = 'http://localhost:8080/products?style=' + idy + '';
       //window.location.href = 'item.html';
     }

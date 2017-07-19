@@ -39,6 +39,11 @@
       width: 95%;
     }
 
+    .main-container {
+      margin-right: 50px;
+      display:inline-block;
+    }
+
     .tinyPic{
       height: 200px;
       width: auto;
@@ -70,11 +75,39 @@
       opacity: 1;
     }
 
+    .color {
+      width: 20px;
+      height: 20px;
+      border-radius: 10px;
+      border-style: solid;
+      border-width: 1px;
+      display: inline-block;
+    }
+
     .text {
       background-color: #4d4d4d;
       color: white;
       font-size: 16px;
       padding: 16px 32px;
+    }
+
+    .display {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+    .glyphicon glyphicon-pencil{
+      display: inline-block;
+    }
+
+    .change_form {
+      margin-left: 50px;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .id{
+      visibility: hidden;
     }
 
     </style>
@@ -89,8 +122,85 @@
 
     <div class="content">
 
-      <h3>EDIT</h3>
+      <div class="col-md-4" id="main-container">
+          <div class="frame">
+            <img class="mainPic" src="{{product.image}}" id="main" width="350" height="auto">
+          </div>
+      </div>
 
+
+      <div class="col-md-3" id="info-container">
+        <form method="POST">
+          <div class="name_div" id="name_div">
+            <h3 class="display">{{product.name}}</h3><span class="glyphicon glyphicon-pencil" aria-hidden="true" onclick="edit('name_div')"></span>
+          </div>
+          <div class="style_div" id="style_div">
+            <h5 class="display">{{product.style}}</h5><span class="glyphicon glyphicon-pencil" aria-hidden="true" onclick="edit('style_div')"></span>
+          </div>
+          <div class="description_div" id="description_div">
+            <h5 class="display">{{product.description}}</h5><span class="glyphicon glyphicon-pencil" aria-hidden="true" onclick="edit('description_div')"></span><hr />
+          </div>
+          <h5><span class='glyphicon glyphicon-usd' aria-hidden='true'></span></h5>
+          <br><br>
+          <div class="color_div" id="color_div">
+            <div class="color" style="background-color: {{product.color}}"></div><span class="glyphicon glyphicon-pencil" aria-hidden="true" onclick="edit('color_div')"></span><hr />
+          </div>
+          <br>
+          <h5>SIZES</h5><hr />
+          <h5>SM<span style='display:inline-block; width: 40px;'></span>MED<span style='display:inline-block; width: 40px;'></span>LRG</h5>
+          <br><br>
+          <div class="about_div" id="about_div">
+            <h5 class="display">Description</h5><span class="glyphicon glyphicon-pencil" aria-hidden="true" onclick="edit('about_div')"></span><hr />
+            <h5>{{product.about}}</h5>
+          </div>
+          <br>
+          <br>
+          <input class='id' type='text' value='{{product.style}}' id='id' name='id'>
+          <button type="submit" class="btn btn-primary">SAVE CHANGES</button>
+        </form>
+      </div>
+
+<!--
+
+      <div class="form-group row">
+        <label for="example-text-input" class="col-2 col-form-label">Image</label>
+        <div class="col-10">
+          <input type="file" name="pic" accept="image/*" value="" id="image">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="example-number-input" class="col-2 col-form-label">Sizes</label>
+        <div class="col-10">
+          <select multiple class="form-control" id="sizes" value="{{product.sizes}}" name="sizes">
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+          </select>
+        </div>
+      </div>
+-->
+
+  <script>
+
+
+    var formElements = {};
+
+    formElements["name_div"] = "<div class='form-group row'><div class='col-10'><input class='form-control' type='text' value='{{product.name}}' id='name' name='name'></div></div>";
+    formElements["style_div"] = "<div class='form-group row'><div class='col-10'><input class='form-control' type='text' value='{{product.style}}' id='style' rows='1' name='style'></div></div>";
+    formElements["description_div"] = "<div class='form-group row'><div class='col-10'><textarea class='form-control' id='description' name='description' value='' rows='2'>{{product.description}}</textarea></div></div>";
+    formElements["color_div"] = "<div class='form-group row'><div class='col-10'><input class='form-control' type='color' value='{{product.color}}' id='color' name='color'></div></div>";
+    formElements["about_div"] =  "<div class='form-group row'><div class='col-10'><textarea class='form-control' id='about' rows='3' name='about' value=''>{{product.about}}</textarea></div></div>";
+
+    function edit(item){
+      var parent = document.getElementById(item);
+      parent.innerHTML = '';
+      parent.innerHTML += formElements[item];
+    }
+
+  </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
