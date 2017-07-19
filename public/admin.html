@@ -39,6 +39,44 @@
       width: 95%;
     }
 
+    .tinyPic{
+      height: 200px;
+      width: auto;
+      transition: .5s ease;
+      backface-visibility: hidden;
+      opacity: 1;
+      display: block;
+    }
+
+    .middle {
+      transition: .5s ease;
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%)
+    }
+
+    .col-xs-2{
+      position: relative;
+    }
+
+    .col-xs-2:hover .tinyPic {
+      opacity: 0.3;
+    }
+
+    .col-xs-2:hover .middle {
+      opacity: 1;
+    }
+
+    .text {
+      background-color: #4d4d4d;
+      color: white;
+      font-size: 16px;
+      padding: 16px 32px;
+    }
+
     </style>
 
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -52,75 +90,48 @@
     <div class="content">
 
     <ul class="nav nav-tabs">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Menu 1</a></li>
+      <li class="active" onclick="window.location.href='http://localhost:8080/admin'"><a href="#">Home</a></li>
+      <li><a href="#" onclick="window.location.href='http://localhost:8080/add'">Add Products</a></li>
       <li><a href="#">Menu 2</a></li>
       <li><a href="#">Menu 3</a></li>
     </ul>
     <br>
-    
-      <form method="POST">
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Image</label>
-        <div class="col-10">
-          <input type="file" name="pic" accept="image/*" value="" id="image">
+
+    <h3>
+      ALL PRODUCTS
+    </h3>
+
+    <div class="container">
+      <div class="row" id="picPlace">
+
+        {{#products}}
+        <div class="col-xs-2">
+            <img src={{image}} id={{style}} class='tinyPic'>
+            <div class="middle">
+              <div class="text" onclick='edit(this)' id={{style}}> EDIT </div>
+            </div>
+            <div class='caption'>
+              <p>{{style}}</p>
+            </div>
         </div>
+        {{/products}}
+
       </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Name</label>
-        <div class="col-10">
-          <input class="form-control" type="text" value="Item of Clothing" id="name" name="name">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Style Number</label>
-        <div class="col-10">
-          <textarea class="form-control" id="style" name="style" value="" rows="1"></textarea>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">Brief Description</label>
-        <div class="col-10">
-          <textarea class="form-control" id="desc" name="desc" value="" rows="2"></textarea>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-number-input" class="col-2 col-form-label">Price</label>
-        <div class="col-10">
-          <input class="form-control" type="number" value="42" id="price" name="price">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-number-input" class="col-2 col-form-label">Sizes</label>
-        <div class="col-10">
-          <select multiple class="form-control" id="sizes" value="" name="sizes">
-            <option>XS</option>
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-          </select>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-color-input" class="col-2 col-form-label">Color</label>
-        <div class="col-10">
-          <input class="form-control" type="color" value="#563d7c" id="color" name="color">
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-text-input" class="col-2 col-form-label">About This Product</label>
-        <div class="col-10">
-          <textarea class="form-control" id="about" rows="3" name="about" value=""></textarea>
-        </div>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </div>
 
     <br>
     <br>
 
     </div>
+
+    <script>
+
+    function edit(img){
+      var idy = img.id;
+      window.location.href = 'http://localhost:8080/edit?style=' + idy + '';
+    }
+
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

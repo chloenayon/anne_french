@@ -138,14 +138,14 @@
                 <li><a href="#" onclick="window.location.href='http://localhost:8080/clothing'"> SEE ALL </a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">TOPS</li>
-                <li><a href="#">knit</a></li>
+                <li><a href="#">Knit</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">DRESSES</li>
-                <li><a href="#">knit</a></li>
-                <li><a href="#">sweater</a></li>
+                <li><a href="#">Knit</a></li>
+                <li><a href="#">Sweater</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">SWEATERS & VESTS</li>
-                <li><a href="#">knits</a></li>
+                <li><a href="#">Knits</a></li>
               </ul>
             </li>
         </ul>
@@ -205,7 +205,7 @@
 
        for (var key in products){
          var curr = products[key];
-         //ins.innerHTML += "<img src='" + curr[4][0] + "' alt='' onclick='redirect(this)' id='"+ key +"'height='400'>";
+         ins.innerHTML += "<img src='" + curr[4][0] + "' alt='' onclick='redirect(this)' id='"+ key +"'height='400'>";
        }
      }
 
@@ -217,7 +217,8 @@
        sessionStorage.setItem('item', img.src);
        sessionStorage.setItem('info', JSON.stringify(listy));
        sessionStorage.setItem('prods', products);
-       window.location.href = 'item.html';
+       window.location.href = 'http://localhost:8080/products?style=' + idy + '';
+       //window.location.href = 'item.html';
      }
 
      function setProducts(){

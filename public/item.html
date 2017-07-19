@@ -33,7 +33,7 @@
       </h3>
       <div class="container">
 	      <ul class="nav navbar-nav">
-	          <li><a href="#" onclick="location.href='index.html'">NEW</a></li>
+	          <li><a href="#" onclick="location.href='http://localhost:8080/clothing'">NEW</a></li>
             <li class="dropdown">
               <a href="#" onclick="location.href='collections.html'" class="dropdown-toggle" id="collection-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 COLLECTIONS
@@ -47,7 +47,7 @@
               </ul>
             </li>
             <li class="dropdown">
-              <a href="#" onclick="location.href='clothing.html'" class="dropdown-toggle" id="clothing-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+              <a href="#" onclick="location.href='http://localhost:8080/clothing'" class="dropdown-toggle" id="clothing-dropdown" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 CLOTHING
                 <span class="caret"></span>
               </a>
@@ -77,12 +77,23 @@
       <div class="row">
       <div class="col-md-3" id="main-container">
           <div class="frame">
-            <img class="mainPic" src="" id="main" width="350" height="auto">
+            <img class="mainPic" src="{{product.image}}" id="main" width="350" height="auto">
           </div>
       </div>
 
 
         <div class="col-md-3" id="info-container">
+          <h3>{{product.name}}</h3>
+          <h5>{{product.description}}</h5><hr />
+          <h5><span class='glyphicon glyphicon-usd' aria-hidden='true'></span></h5>
+          <br><br>
+          <div class="color" style="background-color: {{product.color}}"></div>
+          <br>
+          <h5>SIZES</h5><hr />
+          <h5>SM<span style='display:inline-block; width: 40px;'></span>MED<span style='display:inline-block; width: 40px;'></span>LRG</h5>
+          <br><br>
+          <h5>Description</h5><hr />
+          <h5>{{product.about}}</h5>
         </div>
 
 
@@ -100,10 +111,11 @@
 
     <script>
 
+/*
     getMainImg();
 
     setAll();
-
+*/
     var currPic;
     var zoomImg;
 

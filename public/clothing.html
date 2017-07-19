@@ -44,14 +44,8 @@
     }
 
     .thumb-pic{
-      height: 250px;
-      width: auto;
-    }
-
-
-    .thumbnail{
       height: 400px;
-      width: 250px;
+      width: auto;
     }
 
     </style>
@@ -85,14 +79,14 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="clothing-dropdown">
                 <li class="dropdown-header">TOPS</li>
-                <li><a href="#">knit</a></li>
+                <li><a href="#">Knit</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">DRESSES</li>
-                <li><a href="#">knit</a></li>
-                <li><a href="#">sweater</a></li>
+                <li><a href="#">Knit</a></li>
+                <li><a href="#">Sweater</a></li>
                 <li role="separator" class="divider"></li>
                 <li class="dropdown-header">SWEATERS & VESTS</li>
-                <li><a href="#">knits</a></li>
+                <li><a href="#">Knits</a></li>
               </ul>
             </li>
         </ul>
@@ -101,17 +95,17 @@
 
     <div class="content">
 
-      <div class="jumbotron">
-        <center>
-          <h2>SHOP OUR NEW PIECES FROM THE FALL 2017 COLLECTION</h2>
-        </center>
-      </div>
-
       <ol class="breadcrumb">
         <li><a href="#">Home</a></li>
         <li><a href="#">Library</a></li>
         <li class="active">Data</li>
       </ol>
+
+      <div class="jumbotron">
+        <center>
+          <h2>SHOP OUR NEW PIECES FROM THE FALL 2017 COLLECTION</h2>
+        </center>
+      </div>
 
       <div class="container">
         <div class="row" id="picPlace">
@@ -119,13 +113,11 @@
 
           {{#products}}
           <div class='col-sm-3'>
-            <div class='thumbnail'>
               <img src={{image}} onclick='redirect(this)' id={{style}} class='thumb-pic'>
               <div class='caption'>
 
                 <p>{{name}}</p>
               </div>
-            </div>
           </div>
           {{/products}}
 

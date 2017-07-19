@@ -54,6 +54,20 @@ function addItem(newdoc){
 }
 
 
+function findItem(stylenum, callback){
+  mongoClient.connect(url, function(err, db){
+    assert.equal(null, err);
+    db.collection("products").findOne({style:stylenum}, function(err, doc) {
+        if (err){
+          throw err;
+        } else {
+          callback(doc);
+        }
+    });
+    db.close();
+  });
+}
+
 // TEMPLATE CALLBACK FUNCTION
 
 /*
@@ -91,14 +105,14 @@ app.get('/clothing', function(req, res, next){
 app.get('/products', function(req, res, next){
 
   var styleNum = req.query.style;
-  mongoClient.connect(url, function(err, db) {
-    //if (err) throw err;
-    //var item = db.collection('products').findOne({style:styleNum});
-    console.log(db.collection('products').findOne({style:styleNum}));
-    //console.log(item);
-  res.render('item.html', {products: item});
-  db.close()
+
+  console.log(styleNum);
+
+  findItem(styleNum, function(result){
+    console.log(result);
+    res.render('item.html', {product: result});
   });
+
 });
 
 
@@ -113,11 +127,17 @@ app.get('/login', function(req, res, next){
 
 
 app.get('/admin', function(req, res, next){
-      res.sendFile(public_dir + 'admin.html', {root: __dirname});
+    getAllItems(function(allItems){
+      console.log(allItems);
+      res.render('admin.html', {products: allItems});
     });
+  });
 
+app.get('/add', function(req, res, next){
+          res.sendFile(public_dir + 'admin_2.html', {root: __dirname});
+        });
 
-app.post('/admin', function(req, res, next){
+app.post('/add', function(req, res, next){
 
       var itemImg = "img/fall2017/" + req.body.pic;
       var itemName = req.body.name;
@@ -157,10 +177,22 @@ app.post('/admin', function(req, res, next){
       });
 */
 
-      res.sendFile(public_dir + 'admin.html', {root: __dirname});
+      res.sendFile(public_dir + 'admin_2.html', {root: __dirname});
     });
 
 
+app.get('/edit', function(req, res, next){
+
+      var styleNum = req.query.style;
+
+      console.log(styleNum);
+
+      findItem(styleNum, function(result){
+        console.log(result);
+        res.render('edit.html', {product: result});
+      });
+
+    });
 
 app.listen(8080, function(){
     console.log("Server running on port 8080");
